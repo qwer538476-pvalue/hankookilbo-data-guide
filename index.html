@@ -612,6 +612,18 @@ body.pm #pmbar { display: flex; }
 }
 .pm-btn:hover { color: var(--ink); border-color: var(--border2); }
 
+
+.src-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .65rem; font-weight: 600;
+  color: var(--blue); border: 1px solid rgba(26,76,140,.2);
+  background: rgba(26,76,140,.05);
+  padding: 3px 9px; border-radius: 6px;
+  margin-top: .5rem; transition: all .18s;
+  text-decoration: none;
+}
+.src-btn:hover { background: rgba(26,76,140,.1); border-color: rgba(26,76,140,.35); }
+
 /* ── 반응형 ── */
 @media(max-width:600px) {
   .nav-links { display: none; }
@@ -685,7 +697,8 @@ body.pm #pmbar { display: flex; }
         • session_start2: 수집률 15~20% (4/9~현재) → 방문당 PV 산출 불가<br>
         • article_scroll2: 수집률 37% (1/28~현재) → 열독률·체류시간 산출 불가<br><br>
         <strong style="color:var(--gold)">구조</strong><br>
-        Hmap JS → AWS S3(날짜·이벤트명 파티션) → Glue 카탈로그 → Athena SQL 조회
+        Hmap JS → AWS S3(날짜·이벤트명 파티션) → Glue 카탈로그 → Athena SQL 조회<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQAmnGt_SGwRRqlJuGkZBQ3yAcZ3EG2lmccXZ_9NCqpFcf4?e=V34F2n' target='_blank'>📄 이슈 히스토리 원본</a>
       </div>
     </div>
 
@@ -703,7 +716,8 @@ body.pm #pmbar { display: flex; }
         <strong style="color:var(--red)">⚠ 구조적 제약</strong><br>
         백엔드 "관리자"가 존재하며 조회만 가능. Hmap 스크립트 접근권 없어 수집 제어 불가. 오류 발생 시 소급 수정 불가.<br><br>
         <strong style="color:var(--gold)">수집 특징</strong><br>
-        GA4와 달리 클릭 순간 수집 → 새 탭·외부링크도 누락 없이 기록됨.
+        GA4와 달리 클릭 순간 수집 → 새 탭·외부링크도 누락 없이 기록됨.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:b:/s/AI553/IQDqsBXPEbmITqmC8XyreoWwAQ-RtJ_wL1ylqX_uX0qQgE8?e=XE2rhy' target='_blank'>📄 수집 구조 원본</a>
       </div>
     </div>
 
@@ -722,7 +736,8 @@ body.pm #pmbar { display: flex; }
         GA4 기본 화면: 집계된 요약값만 표시<br>
         BigQuery: 사용자별 이벤트 단위 원시 데이터 직접 조회 가능<br><br>
         <strong style="color:var(--red)">⚠ 한계</strong><br>
-        내부 join_id 없어 Athena 연결 불가. 세션·PV 정의가 Athena와 달라 직접 비교 불가.
+        내부 join_id 없어 Athena 연결 불가. 세션·PV 정의가 Athena와 달라 직접 비교 불가.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQAGEjwVkVdGQIpwnwJz7FurAd7l-vwvWHHgA9GBYEFzc_o?e=xFI0Wb' target='_blank'>📄 데이터 분석 현황 원본</a>
       </div>
     </div>
 
@@ -742,7 +757,8 @@ body.pm #pmbar { display: flex; }
         • Data Cloud: 고객 데이터 통합 CDP<br>
         • Marketing Cloud: 이메일·카카오·SMS 발송 자동화<br><br>
         <strong style="color:var(--red)">⚠ 한계</strong><br>
-        Data Cloud에 원본 저장소 없음. Athena와 join_id 연결 이론상 가능하나 현재 불가.
+        Data Cloud에 원본 저장소 없음. Athena와 join_id 연결 이론상 가능하나 현재 불가.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQDfgIAYPgyRRrCXrk8-d1pBAbVsqXBOha3qnQJDcPagWms?e=UvG4Ee' target='_blank'>📄 통합멤버십 데이터흐름 원본</a>
       </div>
     </div>
 
@@ -757,7 +773,8 @@ body.pm #pmbar { display: flex; }
       </div>
       <div class="pcard-toggle">▾ 자세히 보기</div>
       <div class="pcard-detail">
-        플랫폼 개편 전후 비교, 연도별 계절성 패턴 분석에 유일한 장기 데이터 소스. 단, 자체 산출 기준이 있어 Athena·GA4와 직접 비교 불가.
+        플랫폼 개편 전후 비교, 연도별 계절성 패턴 분석에 유일한 장기 데이터 소스. 단, 자체 산출 기준이 있어 Athena·GA4와 직접 비교 불가.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQDTKKSEgpTySZMvg8gRMhj4Aa-A5zWe-8rNueI4F9e0zSs?e=auqkTT' target='_blank'>📄 파이프라인 구조 원본</a>
       </div>
     </div>
 
@@ -771,7 +788,8 @@ body.pm #pmbar { display: flex; }
         <span class="chip ch-w">개편 후 이슈 다수</span>
       </div>
       <div class="pcard-toggle">▾ 자세히 보기</div>
-      <div class="pcard-detail">웹사이트에 직접 코드를 넣지 않고 태그를 관리하는 시스템. 2026.01.28 뉴플랫폼 개편 이후 GTM 태그 관련 문제점 별도 문서로 관리 중.</div>
+      <div class="pcard-detail">웹사이트에 직접 코드를 넣지 않고 태그를 관리하는 시스템. 2026.01.28 뉴플랫폼 개편 이후 GTM 태그 관련 문제점 별도 문서로 관리 중.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:x:/s/msteams_3bcd0a/IQCfGiSVSE3aSJRSxEY73hTWATO5H7fMpMJSyGG49DOJmBA?e=Jh9vMU' target='_blank'>📄 GTM 문제점 현황 원본</a></div>
     </div>
 
     <div class="pcard c-teal" onclick="toggleCard(this)">
@@ -783,7 +801,9 @@ body.pm #pmbar { display: flex; }
         <span class="chip ch-d">아카이브 데이터</span><span class="chip ch-t">인터페이스 정의서</span>
       </div>
       <div class="pcard-toggle">▾ 자세히 보기</div>
-      <div class="pcard-detail">통합DB 인터페이스 정의서(2026.03.05), 메타데이터 맵핑·정합성 검토(2026.03.27) 진행. DB저작권팀 주관.</div>
+      <div class="pcard-detail">통합DB 인터페이스 정의서(2026.03.05), 메타데이터 맵핑·정합성 검토(2026.03.27) 진행. DB저작권팀 주관.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:x:/s/msteams_3bcd0a/IQDgDgR-F6plTrcI59c9KRHbAWhzCUgMDqUmJOc17IaUgUM?e=RQxg3p' target='_blank'>📄 인터페이스 정의서 원본</a>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:x:/s/msteams_3bcd0a/IQBOeK2E9eA0R7WApJTxV2qJASlBmowTwtbAj8QiVaKZbyg?e=qftCBV' target='_blank'>📄 메타데이터 맵핑 원본</a></div>
     </div>
 
     <div class="pcard c-gold" onclick="toggleCard(this)">
@@ -796,7 +816,8 @@ body.pm #pmbar { display: flex; }
         <span class="chip ch-w">화면 변경 시 중단</span>
       </div>
       <div class="pcard-toggle">▾ 자세히 보기</div>
-      <div class="pcard-detail">포털 공지 없이 화면이 바뀌면 알림 없이 수집 중단. 주 1회 이상 수동 점검 필수. 월간 포상 지표(공감뉴스상·우수기자상) 산출에 활용.</div>
+      <div class="pcard-detail">포털 공지 없이 화면이 바뀌면 알림 없이 수집 중단. 주 1회 이상 수동 점검 필수. 월간 포상 지표(공감뉴스상·우수기자상) 산출에 활용.<br>
+        <a class='src-btn' href='https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQDBdtWgGzgGQZvu_m2pdrd1AUwOJRBbji-3c930iyJK1qU?e=uA3dlC' target='_blank'>📄 데이터 가이드 원본</a></div>
     </div>
 
   </div>
@@ -813,6 +834,12 @@ body.pm #pmbar { display: flex; }
     <p class="sec-desc">세 시스템은 모두 '웹 데이터를 수집한다'는 점에서 비슷해 보이지만, 수집 시점·방식·목적이 근본적으로 다릅니다. 수치가 왜 다른지 설명하려면 이 차이를 알아야 합니다.</p>
     <div class="acc"></div>
 
+
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem">
+      <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/AI553/IQDqsBXPEbmITqmC8XyreoWwAQ-RtJ_wL1ylqX_uX0qQgE8?e=XE2rhy" target="_blank">📄 Athena-GA-BigQuery 수집 구조</a>
+      <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQAGEjwVkVdGQIpwnwJz7FurAd7l-vwvWHHgA9GBYEFzc_o?e=xFI0Wb" target="_blank">📄 데이터 분석 현황</a>
+      <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQDBdtWgGzgGQZvu_m2pdrd1AUwOJRBbji-3c930iyJK1qU?e=uA3dlC" target="_blank">📄 데이터 가이드</a>
+    </div>
     <div class="col-compare">
       <div class="col-box cb-a">
         <div class="col-box-title">🗄 AWS Athena (Hmap 2.0) <span class="col-badge cb-ba">자체 로그</span></div>
@@ -893,6 +920,11 @@ body.pm #pmbar { display: flex; }
   <div class="sec-title">수집에서 시각화까지</div>
   <p class="sec-desc">한국일보 홈페이지를 공통 출발점으로 4개 수집 경로가 존재합니다. 각 경로가 어디서 끝나는지 파악하세요.</p>
   <div class="acc"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem">
+    <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/AI553/IQARsV19Su-XR6v8toJeksjHAT7IfV6Abhl6li2SEQ79Il8?e=wOrkfn" target="_blank">📄 전체 흐름도</a>
+    <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/AI553/IQCxfUiKGjavQ5PGthGC8GLGAfnTxcEcPE6ju_U0kaqhOTI?e=gF4RMB" target="_blank">📄 전체 흐름도2</a>
+    <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/msteams_3bcd0a/IQDTKKSEgpTySZMvg8gRMhj4Aa-A5zWe-8rNueI4F9e0zSs?e=auqkTT" target="_blank">📄 파이프라인 구조</a>
+  </div>
   <div class="flow-wrap">
     <div class="flow-lh">① 수집 레이어</div>
     <div class="flow-nodes">
@@ -1000,6 +1032,7 @@ body.pm #pmbar { display: flex; }
   <div class="sec-title">지금 팀이 하고 있는 일들</div>
   <p class="sec-desc">AI&데이터팀이 현재 수행 중인 주요 분석 업무입니다. 각 업무가 어떤 데이터 플랫폼에 의존하는지 함께 파악하세요.</p>
   <div class="acc"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem"><a class="src-btn" href="https://dongwha01.sharepoint.com/:x:/s/msteams_3bcd0a/IQDLIULYMaYiQIxLLp7zOa3fARXhRNEb-GaERltWeNNUHXs?e=Qo5fwk" target="_blank">📄 HMAP 통계 화면요구사항</a></div>
   <div class="atable-wrap">
     <table class="atable">
       <thead><tr><th>업무</th><th>주기</th><th>도구</th><th>의존 플랫폼</th><th>주요 주의사항</th></tr></thead>
