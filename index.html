@@ -169,18 +169,19 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-size: clamp(.88rem,2vw,1rem);
   color: var(--mid);
   line-height: 1.85; margin-bottom: 2.5rem;
-  font-weight: 400;
+  font-weight: 400; text-align: left;
 }
 
 .hero-quote {
   background: rgba(200,16,46,.04);
   border-left: 3px solid var(--red);
   padding: .9rem 1.4rem; text-align: left;
-  max-width: 620px; border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
   margin-bottom: 2.8rem;
   font-size: .88rem; color: var(--mid);
   font-family: 'Noto Serif KR', serif;
   font-weight: 400; line-height: 1.85;
+  white-space: nowrap;
 }
 
 .hero-stats {
@@ -667,7 +668,7 @@ body.pm #pmbar { display: flex; }
   <div class="hero-stats">
     <div class="hstat"><span class="n">8</span><span class="l">데이터 플랫폼</span></div>
     <div class="hstat"><span class="n">4</span><span class="l">수집 경로</span></div>
-    <div class="hstat"><span class="n">3</span><span class="l">진행 중 이슈</span></div>
+    <div class="hstat"><span class="n">1</span><span class="l">진행 중 이슈</span></div>
     <div class="hstat"><span class="n">3</span><span class="l">협업 팀</span></div>
   </div>
   <div class="scroll-cue">▼  스크롤하여 시작</div>
@@ -974,30 +975,32 @@ body.pm #pmbar { display: flex; }
   <div class="acc"></div>
   <div id="iss-inner" style="display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start">
     <div class="timeline">
-      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">01-28 → 02-27 14시</div><div class="t-title">join_id NULL 수집 <span class="badge b-done">해결</span></div><div class="t-desc">로그인 회원의 join_id가 페이지에서 읽히지 않아 빈값 적재. 2월 27일 해결.</div></div></div>
-      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">→ 03-11</div><div class="t-title">추천·관련 기사 클릭 구분 불가 <span class="badge b-done">해결</span></div><div class="t-desc">Tailwind 클래스 혼재로 rec_/rel_ 단독 식별 불가. 3월 11일 해결.</div></div></div>
-      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">01-28 → 04-28</div><div class="t-title">공유 버튼 클릭 수집 불가 <span class="badge b-done">해결</span></div><div class="t-desc">카카오·페이스북·트위터·링크복사 종류 구분 없이 수집. 4월 28일 해결.</div></div></div>
-      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">인프라</div><div class="t-title">Tableau Prep → Athena 연결 오류 <span class="badge b-done">해결</span></div><div class="t-desc">IAM 권한 누락(athena:CreatePreparedStatement). Data Cloud 적재 중단 및 SQL 불가.</div></div></div>
-      <div class="titem t-now"><div class="t-dot"></div><div><div class="t-date">01-28 ~ 현재</div><div class="t-title">article_scroll2 수집 저하 <span class="badge b-now">진행 중</span></div><div class="t-desc">수집률 37% 수준. 기사 조회시간·열독률 산출 불가. 체류시간 정합성 오류 지속.</div></div></div>
-      <div class="titem t-now"><div class="t-dot"></div><div><div class="t-date">04-09 ~ 현재</div><div class="t-title">session_start2 급감 <span class="badge b-now">진행 중</span></div><div class="t-desc">수집률 15~20% 수준. 방문당 PV 일별 산출 불가. 현재 가장 심각한 이슈.</div></div></div>
+      <div class="titem t-now"><div class="t-dot"></div><div><div class="t-date">01-28 ~ 현재</div><div class="t-title">article_scroll2 수집 저하 <span class="badge b-now">진행 중</span></div><div class="t-desc">수집률 37% 수준 지속. 5/12 개발팀 개선 코드 적용 → 기준값 대비 11% 수준으로 미복구. 기사 조회시간·열독률 산출 불가 지속. 5/26 추가 개선 반영 예정.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">04-09 → 05-12</div><div class="t-title">session_start2 수집 급감 <span class="badge b-done">해결</span></div><div class="t-desc">3만대 고정 급감 → session_id 대비 10~15% 수준. 방문당 PV 일별 산출 불가. 5/12 운영 배치 적용 후 96.6% 회복.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">04-03 → 04-20</div><div class="t-title">Tableau Prep → Athena 연결 오류 <span class="badge b-done">해결</span></div><div class="t-desc">IAM 내부 정책 변경으로 athena:CreatePreparedStatement 권한 분리. 태블로에서 Athena 조회 불가 → Data Cloud 적재 중단.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">01-28 → 04-28</div><div class="t-title">공유 버튼 클릭 수집 불가 <span class="badge b-done">해결</span></div><div class="t-desc">카카오·페이스북·트위터·링크복사 종류 구분 없이 수집되던 문제. SNS 종류별 구분 반영.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">03-05 → 03-06</div><div class="t-title">봇 정산 허브 데이터 보정 작업 <span class="badge b-done">완료</span></div><div class="t-desc">1/28 이후 봇(Yeti) 정산분 재처리. 일별/주·월 집계값, 채널값, 인기기사, 부서별 정산값 대상.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">02-13 → 03-27</div><div class="t-title">구독/구독취소 이벤트 누락 <span class="badge b-done">해결</span></div><div class="t-desc">트리거 중복 수정 오류로 누락. 해당 기간 Salesforce 데이터로 대체 운영. 3/27 09:47 단일 트리거 정상화.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">02-14 → 03-11</div><div class="t-title">추천·관련 기사 클릭 구분 불가 <span class="badge b-done">해결</span></div><div class="t-desc">gtm-class 미수집으로 추천·관련 클릭 영역 구분 불가. 3월 11일 해결.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">02-23 → 02-27</div><div class="t-title">통합회원번호(join_id) 빈값 적재 <span class="badge b-done">해결</span></div><div class="t-desc">로그인 회원의 join_id가 페이지에서 읽히지 않아 빈값으로 적재. 2월 27일 해결.</div></div></div>
+      <div class="titem t-done"><div class="t-dot"></div><div><div class="t-date">01-28 → 02-03</div><div class="t-title">GA4 자동 수집 이벤트 미수집 <span class="badge b-done">해결</span></div><div class="t-desc">GTM 컨테이너 ID 미분리로 자동 수집 이벤트 전체 누락. 2/3 15:27 컨테이너 ID 분리 완료.</div></div></div>
     </div>
     <div class="rate-bars">
-      <div style="font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.8rem">진행 중 수집률</div>
+      <div style="font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.8rem">수집률 현황</div>
       <div style="margin-bottom:1.2rem">
-        <div class="rate-head"><span class="rate-name">session_start2</span><span class="rate-val" style="color:var(--red)">15~20%</span></div>
-        <div class="rate-track"><div class="rate-fill" style="width:17%;background:var(--red)"></div></div>
-        <div class="rate-note">→ 방문당 PV 산출 불가</div>
-      </div>
-      <div>
         <div class="rate-head"><span class="rate-name">article_scroll2</span><span class="rate-val" style="color:var(--orange)">37%</span></div>
         <div class="rate-track"><div class="rate-fill" style="width:37%;background:var(--orange)"></div></div>
-        <div class="rate-note">→ 열독률·체류시간 불가</div>
+        <div class="rate-note">→ 열독률·체류시간 불가 · 5/26 추가 반영 예정</div>
+      </div>
+      <div style="margin-bottom:1.2rem">
+        <div class="rate-head"><span class="rate-name">session_start2</span><span class="rate-val" style="color:var(--green)">96.6%</span></div>
+        <div class="rate-track"><div class="rate-fill" style="width:96.6%;background:var(--green)"></div></div>
+        <div class="rate-note">✅ 5/12 복구 완료 · 방문당 PV 산출 정상화</div>
       </div>
       <div style="border-top:1px solid var(--border);padding-top:1rem;margin-top:1rem">
-        <div style="font-size:.72rem;color:var(--mid);font-weight:600;margin-bottom:.5rem">업무 영향</div>
+        <div style="font-size:.72rem;color:var(--mid);font-weight:600;margin-bottom:.5rem">업무 영향 (article_scroll2)</div>
         <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:.73rem;color:var(--mid);padding:5px 8px;background:var(--bg2);border-radius:5px">멤버십 로그인 월 성과 정확도 저하</div>
-          <div style="font-size:.73rem;color:var(--mid);padding:5px 8px;background:var(--bg2);border-radius:5px">추천시스템 CTR·MAP 신뢰도 저하</div>
+          <div style="font-size:.73rem;color:var(--mid);padding:5px 8px;background:var(--bg2);border-radius:5px">기사 조회시간·열독률 산출 불가</div>
           <div style="font-size:.73rem;color:var(--mid);padding:5px 8px;background:var(--bg2);border-radius:5px">H-map 통계 개편 지표 검증 난항</div>
           <div style="font-size:.73rem;color:var(--mid);padding:5px 8px;background:var(--bg2);border-radius:5px">프리미엄 시리즈 체류시간 부정확</div>
         </div>
