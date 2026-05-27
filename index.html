@@ -650,7 +650,7 @@ body.pm #pmbar { display: flex; }
     <a href="#flow">데이터 흐름</a>
     <a href="#issues">이슈</a>
     <a href="#relations">상호 영향</a>
-    <a href="#analysis">분석 업무</a>
+    <a href="#erd">ERD</a><a href="#analysis">분석 업무</a>
     <a href="#quiz">쪽지시험</a>
   </div>
   <button class="nav-mode" id="modeBtn" onclick="togglePM()">📽 발표 모드</button>
@@ -1026,9 +1026,80 @@ body.pm #pmbar { display: flex; }
 
 <div class="hr"></div>
 
-<!-- ══ 06 분석 업무 ══ -->
-<section class="sec slide" id="analysis" data-s="6">
-  <div class="eyebrow">06 · 현재 분석 업무</div>
+
+<div class="hr"></div>
+
+<!-- ══ 06-1 ERD ══ -->
+<section class="sec slide" id="erd" data-s="6">
+  <div class="eyebrow">06 · ERD란 무엇인가</div>
+  <div class="sec-title">그리고 왜 우리 데이터에는<br>적용할 수 없는가</div>
+  <p class="sec-desc">ERD는 데이터베이스 구조를 시각화하는 도구입니다. 그런데 한국일보 데이터 시스템은 ERD가 맞지 않는 구조입니다. 왜 그런지 이해하는 것이 핵심입니다.</p>
+  <div class="acc"></div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.8rem">
+    <a class="src-btn" href="https://dongwha01.sharepoint.com/:b:/s/AI553/IQAISPwlEP_3Sbbkwkyfla16AY5ootNpaOHWHoLs7c0i80k?e=hNtlyd" target="_blank">📄 ERD란 무엇인가 원본</a>
+  </div>
+
+  <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));margin-bottom:1.5rem">
+
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow)">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.6rem">ERD란</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem">Entity Relationship Diagram</div>
+      <p style="font-size:.82rem;color:var(--mid);line-height:1.78;font-weight:300">데이터베이스의 테이블 구조와 테이블 간 관계를 시각화한 설계 도구입니다. 여러 테이블이 FK(외래키)로 연결된 관계형 DB 구조에서 의미가 있습니다. 프로젝트 초기 설계 단계에서 데이터 모델러가 작성하고, 개발자·분석가가 참조합니다.</p>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow)">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.6rem">CRUD와의 관계</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem">ERD는 CRUD가 모두 가능한 구조에서 작동</div>
+      <p style="font-size:.82rem;color:var(--mid);line-height:1.78;font-weight:300">관계형 DB는 Create·Read·Update·Delete 네 가지 작업이 모두 가능합니다. ERD는 이 구조, 즉 여러 테이블이 서로 JOIN되고 데이터를 수정·삭제할 수 있는 환경에서 테이블 간 관계를 표현하는 도구입니다.</p>
+    </div>
+
+  </div>
+
+  <div class="hbox" style="background:rgba(26,76,140,.05);border-color:rgba(26,76,140,.18)">
+    <strong style="color:var(--blue)">왜 한국일보 데이터에는 ERD를 그릴 수 없나</strong><br>
+    ERD는 여러 테이블이 FK로 연결된 정규화 구조에서 의미가 있습니다. GA4·Athena는 단일 이벤트 테이블에 모든 데이터가 flat하게 쌓이는 구조라 ERD를 그리면 테이블 하나에 화살표 없는 그림이 나옵니다. 테이블 간 JOIN 관계 자체가 없기 때문입니다.
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1rem;margin-bottom:1.5rem">
+
+    <div style="background:rgba(26,76,140,.04);border:1px solid rgba(26,76,140,.15);border-radius:var(--r);padding:1.2rem">
+      <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;color:var(--ink)">GA4 — 이벤트 트래킹 구조</div>
+      <p style="font-size:.8rem;color:var(--mid);line-height:1.75;font-weight:300">유저 행동을 이벤트 단위로 수집합니다. 페이지뷰·클릭·스크롤 모두 <code style="font-family:'JetBrains Mono',monospace;font-size:.75rem;background:var(--bg2);padding:1px 5px;border-radius:4px">event_name</code> 컬럼으로 구분되며, 관계형 구조가 아닌 이벤트 스트림 형태로 쌓입니다.</p>
+    </div>
+
+    <div style="background:rgba(74,52,144,.04);border:1px solid rgba(74,52,144,.15);border-radius:var(--r);padding:1.2rem">
+      <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;color:var(--ink)">이벤트 구조는 3차원 형태</div>
+      <p style="font-size:.8rem;color:var(--mid);line-height:1.75;font-weight:300">일반 RDB는 행·열로 이루어진 2차원 구조입니다. GA4·Athena의 <code style="font-family:'JetBrains Mono',monospace;font-size:.75rem;background:var(--bg2);padding:1px 5px;border-radius:4px">event_params</code>는 컬럼 하나 안에 key-value 쌍이 또 쌓이는 중첩 구조입니다. 그래서 일반 SQL로 바로 꺼낼 수 없고 <code style="font-family:'JetBrains Mono',monospace;font-size:.75rem;background:var(--bg2);padding:1px 5px;border-radius:4px">UNNEST</code>로 펼쳐야 합니다.</p>
+    </div>
+
+    <div style="background:rgba(26,102,68,.04);border:1px solid rgba(26,102,68,.15);border-radius:var(--r);padding:1.2rem">
+      <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;color:var(--ink)">컬럼 정의서가 더 적합한 이유</div>
+      <p style="font-size:.8rem;color:var(--mid);line-height:1.75;font-weight:300">컬럼 정의서가 ERD 기능을 못 내는 게 아닙니다. 애초에 이벤트 구조는 테이블 간 JOIN 관계가 없기 때문에 ERD가 필요 없는 구조입니다. event_name별 컬럼 정의서가 이 구조에 가장 적합한 문서 형태입니다.</p>
+    </div>
+
+  </div>
+
+  <div class="atable-wrap">
+    <table class="atable">
+      <thead><tr><th>구분</th><th>정규화 구조 (RDBMS)</th><th>이벤트 구조 (GA4/Athena)</th></tr></thead>
+      <tbody>
+        <tr><td>테이블 수</td><td>여러 개, FK로 연결</td><td>단일 events 테이블</td></tr>
+        <tr><td>행동 기록 방식</td><td>각 테이블에 분산 저장</td><td>event_name + params로 통합</td></tr>
+        <tr><td>CRUD</td><td>전부 가능</td><td>Create·Read만 (append-only)</td></tr>
+        <tr><td>적합한 문서</td><td>ERD</td><td>컬럼 정의서 (event_name별 params)</td></tr>
+        <tr><td>ERD 적용</td><td class="good">가능</td><td class="warn">불가 — 화살표 없는 그림만 나옴</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+<div class="hr"></div>
+
+<!-- ══ 07 분석 업무 ══ -->
+<section class="sec slide" id="analysis" data-s="7">
+  <div class="eyebrow">07 · 현재 분석 업무</div>
   <div class="sec-title">지금 팀이 하고 있는 일들</div>
   <p class="sec-desc">AI&데이터팀이 현재 수행 중인 주요 분석 업무입니다. 각 업무가 어떤 데이터 플랫폼에 의존하는지 함께 파악하세요.</p>
   <div class="acc"></div>
@@ -1052,9 +1123,9 @@ body.pm #pmbar { display: flex; }
 
 <!-- ══ 07 쪽지시험 ══ -->
 <div class="sec-band">
-<div class="inner slide" id="quiz" data-s="7">
+<div class="inner slide" id="quiz" data-s="8">
   <div style="padding:clamp(3rem,8vw,6rem) 0;max-width:700px;margin:0 auto">
-    <div class="eyebrow">07 · 쪽지시험</div>
+    <div class="eyebrow">08 · 쪽지시험</div>
     <div class="sec-title">제대로 이해했는지 확인해봅시다</div>
     <p class="sec-desc" style="margin-bottom:2rem">5문제. 배운 내용 기반입니다.</p>
 
@@ -1078,14 +1149,14 @@ body.pm #pmbar { display: flex; }
 
     <div class="qblock" id="qb1">
       <div class="qnum">문제 2 / 5</div>
-      <div class="qtext">현재 session_start2 이벤트 수집률과 그로 인해 발생하는 문제를 올바르게 설명한 것은?</div>
+      <div class="qtext">GA4·Athena 데이터 구조에 ERD를 적용할 수 없는 가장 근본적인 이유는?</div>
       <div class="qopts">
-        <div class="qopt" onclick="pick(this,1,1)"><span class="qlabel">A</span>37% 수준, 열독률 산출 불가 (1/28~현재)</div>
-        <div class="qopt" onclick="pick(this,1,2)"><span class="qlabel">B</span>15~20% 수준, 방문당 PV 일별 산출 불가 (4/9~현재)</div>
-        <div class="qopt" onclick="pick(this,1,3)"><span class="qlabel">C</span>80% 수준, 일시적 지연만 발생하며 데이터 산출에는 문제 없음</div>
-        <div class="qopt" onclick="pick(this,1,4)"><span class="qlabel">D</span>50% 수준, join_id 누락으로 인한 회원 분석 불가</div>
+        <div class="qopt" onclick="pick(this,1,1)"><span class="qlabel">A</span>GA4와 Athena는 데이터 용량이 너무 커서 ERD 툴이 처리할 수 없기 때문이다</div>
+        <div class="qopt" onclick="pick(this,1,2)"><span class="qlabel">B</span>GA4·Athena는 단일 이벤트 테이블에 데이터가 flat하게 쌓이는 구조라 테이블 간 FK 연결 관계 자체가 없기 때문이다</div>
+        <div class="qopt" onclick="pick(this,1,3)"><span class="qlabel">C</span>ERD는 구글 클라우드 서비스와 호환되지 않는 도구이기 때문이다</div>
+        <div class="qopt" onclick="pick(this,1,4)"><span class="qlabel">D</span>한국일보 데이터팀에 ERD를 그릴 수 있는 전담 인력이 없기 때문이다</div>
       </div>
-      <div class="qexp" id="qe1"><strong>정답: B</strong> — session_start2는 4/9부터 현재까지 15~20% 수준으로 급감. 방문당 PV 일별 산출이 불가합니다. 37% 수준은 article_scroll2의 수집률입니다. 두 이슈가 동시에 진행 중임을 기억하세요.</div>
+      <div class="qexp" id="qe1"><strong>정답: B</strong> — ERD는 여러 테이블이 FK로 연결된 정규화 구조에서 의미가 있습니다. GA4·Athena는 모든 데이터가 단일 이벤트 테이블에 append-only로 쌓이는 구조라 테이블 간 JOIN 관계 자체가 없습니다. ERD를 그리면 테이블 하나에 화살표 없는 그림만 나옵니다. 이 구조에는 event_name별 컬럼 정의서가 적합합니다.</div>
       <div class="qnav"><button class="qbtn" onclick="prv(1)">← 이전</button><button class="qbtn pri" id="qn1" onclick="nxt(1)" disabled>다음 →</button></div>
     </div>
 
@@ -1269,7 +1340,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape') togglePM();
 });
 
-const secs=['platforms','collection','flow','issues','relations','analysis','quiz'];
+const secs=['platforms','collection','flow','issues','relations','erd','analysis','quiz'];
 window.addEventListener('scroll',()=>{
   let a='';
   secs.forEach(id=>{
