@@ -13,7 +13,7 @@
   --ink:     #1A1410;
   --ink2:    #2D2620;
   --mid:     #4A3E36;
-  --muted:   #6A6058;
+  --muted:   #4A4038;
   --border:  #DDD8D0;
   --border2: #C8C2B8;
   --bg:      #F5F0E8;
@@ -137,7 +137,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .hero-pill {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+  font-size: .76rem; letter-spacing: .18em; text-transform: uppercase;
   font-weight: 700; color: var(--red);
   border: 1px solid rgba(200,16,46,.25);
   padding: 4px 14px; border-radius: 20px;
@@ -179,7 +179,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   max-width: 620px; border-radius: 0 10px 10px 0;
   margin-bottom: 2.8rem;
   font-size: .88rem; color: var(--mid);
-  font-style: italic; line-height: 1.85;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 400; line-height: 1.85;
 }
 
 .hero-stats {
@@ -192,12 +193,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-weight: 600; color: var(--red);
   display: block;
 }
-.hstat .l { font-size: .68rem; color: var(--muted); letter-spacing: .06em; }
+.hstat .l { font-size: .75rem; color: var(--muted); letter-spacing: .06em; }
 
 .scroll-cue {
   position: absolute; bottom: 2rem; left: 50%;
   transform: translateX(-50%);
-  font-size: .68rem; color: var(--muted);
+  font-size: .75rem; color: var(--muted);
   letter-spacing: .12em;
   animation: bob 2.2s ease-in-out infinite;
 }
@@ -275,7 +276,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .pcard.c-teal::before  { background: var(--teal); }
 
 .pcard-ico  { font-size: 1.6rem; margin-bottom: .7rem; display: block; }
-.pcard-sys  { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; font-weight: 500; }
+.pcard-sys  { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; font-weight: 500; }
 .pcard-name { font-family: 'Noto Serif KR', serif; font-size: 1.12rem; font-weight: 700; margin-bottom: .55rem; color: var(--ink); }
 .pcard-desc { font-size: .8rem; color: var(--mid); line-height: 1.72; margin-bottom: .85rem; font-weight: 400; }
 
@@ -286,7 +287,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .ch-w  { background: rgba(200,16,46,.08);  color: var(--red);  border: 1px solid rgba(200,16,46,.15); }
 .ch-ok { background: rgba(26,102,68,.08);  color: var(--green);border: 1px solid rgba(26,102,68,.15); }
 
-.pcard-toggle { font-size: .68rem; color: var(--muted); transition: color .18s; user-select: none; }
+.pcard-toggle { font-size: .75rem; color: var(--muted); transition: color .18s; user-select: none; }
 .pcard:hover .pcard-toggle { color: var(--mid); }
 
 .pcard-detail {
@@ -345,7 +346,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-size: .75rem; padding: 5px 8px;
   background: var(--bg); border-radius: 6px;
 }
-.cr-k  { color: var(--muted); font-size: .67rem; white-space: nowrap; min-width: 64px; flex-shrink: 0; }
+.cr-k  { color: var(--muted); font-size: .74rem; white-space: nowrap; min-width: 64px; flex-shrink: 0; }
 .cr-v  { color: var(--mid); }
 .good  { color: var(--green); font-weight: 500; }
 .warn  { color: var(--red);   font-weight: 500; }
@@ -375,7 +376,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ── 데이터 흐름 ── */
 .flow-wrap { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
 .flow-lh {
-  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
   color: var(--muted); font-weight: 700; margin-bottom: .7rem;
   display: flex; align-items: center; gap: .5rem;
 }
@@ -394,7 +395,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   transition: border-color .2s;
 }
 .fnode .fn { font-size: .8rem; }
-.fnode .fs { font-size: .65rem; color: var(--muted); font-weight: 500; }
+.fnode .fs { font-size: .72rem; color: var(--muted); font-weight: 500; }
 .fnode.fw { border-color: rgba(200,16,46,.35); background: rgba(200,16,46,.03); }
 .fnode.fw .fn { color: var(--red); }
 .fnode.fh { border-color: rgba(184,134,11,.4); background: rgba(184,134,11,.04); }
@@ -428,7 +429,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   50%    { box-shadow: 0 0 0 6px rgba(196,92,16,.06); }
 }
 
-.t-date  { font-family: 'JetBrains Mono', monospace; font-size: .67rem; color: var(--muted); margin-bottom: .25rem; }
+.t-date  { font-family: 'JetBrains Mono', monospace; font-size: .74rem; color: var(--muted); margin-bottom: .25rem; }
 .t-title { font-weight: 700; font-size: .88rem; color: var(--ink); margin-bottom: .35rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
 .t-desc  { font-size: .77rem; color: var(--mid); line-height: 1.7; font-weight: 400; }
 
@@ -446,7 +447,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .rate-val  { font-family: 'JetBrains Mono', monospace; font-size: .8rem; }
 .rate-track { height: 5px; background: var(--bg2); border-radius: 3px; overflow: hidden; }
 .rate-fill  { height: 100%; border-radius: 3px; }
-.rate-note  { font-size: .7rem; color: var(--muted); margin-top: .3rem; }
+.rate-note  { font-size: .76rem; color: var(--muted); margin-top: .3rem; }
 
 /* ── 관계 카드 ── */
 .rel-grid {
@@ -511,7 +512,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .qblock     { display: none; }
 .qblock.act { display: block; animation: up .35s ease; }
 
-.qnum  { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--red); margin-bottom: .5rem; letter-spacing: .1em; }
+.qnum  { font-family: 'JetBrains Mono', monospace; font-size: .76rem; color: var(--red); margin-bottom: .5rem; letter-spacing: .1em; }
 .qtext { font-family: 'Noto Serif KR', serif; font-size: clamp(1rem,2.5vw,1.12rem); font-weight: 700; line-height: 1.5; color: var(--ink); margin-bottom: 1.5rem; }
 
 .qopts { display: flex; flex-direction: column; gap: 7px; margin-bottom: 1.2rem; }
@@ -531,7 +532,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   width: 21px; height: 21px; border-radius: 50%;
   background: var(--bg2); display: flex;
   align-items: center; justify-content: center;
-  font-size: .67rem; font-weight: 700; color: var(--muted);
+  font-size: .74rem; font-weight: 700; color: var(--muted);
   flex-shrink: 0; margin-top: 1px; transition: all .18s;
 }
 .qopt.sel .qlabel { background: var(--gold);  color: #fff; }
@@ -615,7 +616,7 @@ body.pm #pmbar { display: flex; }
 
 .src-btn {
   display: inline-flex; align-items: center; gap: 4px;
-  font-size: .65rem; font-weight: 600;
+  font-size: .72rem; font-weight: 600;
   color: var(--blue); border: 1px solid rgba(26,76,140,.2);
   background: rgba(26,76,140,.05);
   padding: 3px 9px; border-radius: 6px;
@@ -1014,9 +1015,9 @@ body.pm #pmbar { display: flex; }
   <p class="sec-desc">각 시스템은 독립적으로 보이지만 강하게 연결되어 있습니다. 한 곳의 문제가 다른 곳의 업무에 즉각 영향을 줍니다.</p>
   <div class="acc"></div>
   <div class="rel-grid">
-    <div class="rcard"><h4>⚡ Tableau 이중 역할 문제</h4><p>Tableau는 Athena → Data Cloud 파이프라인과 회원 현황 대시보드 역할을 동시에 수행. 파이프라인 이상 시 대시보드도 즉각 영향.</p><ul><li><span class="from">Athena</span><span class="arr">→</span><span class="to">Tableau</span><span style="color:var(--muted);font-size:.7rem">데이터 호출</span></li><li><span class="from">Tableau</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.7rem">일배치 적재</span></li><li><span class="from">Tableau</span><span class="arr">→</span><span class="to">대시보드</span><span style="color:var(--muted);font-size:.7rem">회원 현황 시각화</span></li></ul></div>
-    <div class="rcard"><h4>🔗 join_id 연결 고리</h4><p>회원번호(join_id)는 Athena와 Salesforce를 잇는 핵심 키. 수집 오류 시 양쪽 동시 역추적 필요.</p><ul><li><span class="from">Hmap 2.0</span><span class="arr">→</span><span class="to">Athena</span><span style="color:var(--muted);font-size:.7rem">join_id 포함</span></li><li><span class="from">Athena</span><span class="arr">↔</span><span class="to">Salesforce DC</span><span style="color:var(--muted);font-size:.7rem">연결 필요</span></li><li><span class="no">GA4</span><span class="arr">✕</span><span class="to">Athena</span><span style="color:var(--muted);font-size:.7rem">join_id 없어 불가</span></li></ul></div>
-    <div class="rcard"><h4>📦 Data Cloud 원본 부재</h4><p>Data Cloud에 원본 저장소가 없고 CDP에 강제 적재 구조. 오류 발생 시 원본 검증·소급 조회 어려움.</p><ul><li><span class="from">Service Cloud</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.7rem">실시간</span></li><li><span class="from">Marketing Cloud</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.7rem">발송이력 변환</span></li><li><span class="no">원본 없음</span><span class="arr">→</span><span class="no">소급 검증 불가</span></li></ul></div>
+    <div class="rcard"><h4>⚡ Tableau 이중 역할 문제</h4><p>Tableau는 Athena → Data Cloud 파이프라인과 회원 현황 대시보드 역할을 동시에 수행. 파이프라인 이상 시 대시보드도 즉각 영향.</p><ul><li><span class="from">Athena</span><span class="arr">→</span><span class="to">Tableau</span><span style="color:var(--muted);font-size:.76rem">데이터 호출</span></li><li><span class="from">Tableau</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.76rem">일배치 적재</span></li><li><span class="from">Tableau</span><span class="arr">→</span><span class="to">대시보드</span><span style="color:var(--muted);font-size:.76rem">회원 현황 시각화</span></li></ul></div>
+    <div class="rcard"><h4>🔗 join_id 연결 고리</h4><p>회원번호(join_id)는 Athena와 Salesforce를 잇는 핵심 키. 수집 오류 시 양쪽 동시 역추적 필요.</p><ul><li><span class="from">Hmap 2.0</span><span class="arr">→</span><span class="to">Athena</span><span style="color:var(--muted);font-size:.76rem">join_id 포함</span></li><li><span class="from">Athena</span><span class="arr">↔</span><span class="to">Salesforce DC</span><span style="color:var(--muted);font-size:.76rem">연결 필요</span></li><li><span class="no">GA4</span><span class="arr">✕</span><span class="to">Athena</span><span style="color:var(--muted);font-size:.76rem">join_id 없어 불가</span></li></ul></div>
+    <div class="rcard"><h4>📦 Data Cloud 원본 부재</h4><p>Data Cloud에 원본 저장소가 없고 CDP에 강제 적재 구조. 오류 발생 시 원본 검증·소급 조회 어려움.</p><ul><li><span class="from">Service Cloud</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.76rem">실시간</span></li><li><span class="from">Marketing Cloud</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.76rem">발송이력 변환</span></li><li><span class="no">원본 없음</span><span class="arr">→</span><span class="no">소급 검증 불가</span></li></ul></div>
     <div class="rcard"><h4>📋 전략실 3팀 협업 구조</h4><p>AI&데이터팀, 통합멤버십팀, DB저작권팀이 각자 영역에서 데이터 업무를 확장 중이며 각 영역이 서로 맞닿아 있습니다.</p><ul><li><span class="from">AI&데이터팀</span><span class="arr">→</span><span class="to">Athena·행동분석</span></li><li><span class="from">통합멤버십팀</span><span class="arr">→</span><span class="to">Salesforce·CRM</span></li><li><span class="from">DB저작권팀</span><span class="arr">→</span><span class="to">통합DB·메타데이터</span></li></ul></div>
   </div>
   <div class="hbox">
@@ -1032,7 +1033,7 @@ body.pm #pmbar { display: flex; }
 <!-- ══ 06-1 ERD ══ -->
 <section class="sec slide" id="erd" data-s="6">
   <div class="eyebrow">06 · ERD란 무엇인가</div>
-  <div class="sec-title">그리고 왜 우리 데이터에는<br>적용할 수 없는가</div>
+  <div class="sec-title">그리고 왜 우리 데이터에는 적용할 수 없는가</div>
   <p class="sec-desc">ERD는 데이터베이스 구조를 시각화하는 도구입니다. 그런데 한국일보 데이터 시스템은 ERD가 맞지 않는 구조입니다. 왜 그런지 이해하는 것이 핵심입니다.</p>
   <div class="acc"></div>
 
