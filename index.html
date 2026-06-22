@@ -1021,7 +1021,7 @@ body.pm #pmbar { display: flex; }
     <div class="rcard"><h4>⚡ Tableau 이중 역할 문제</h4><p>Tableau는 Athena → Data Cloud 파이프라인과 회원 현황 대시보드 역할을 동시에 수행. 파이프라인 이상 시 대시보드도 즉각 영향.</p><ul><li><span class="from">Athena</span><span class="arr">→</span><span class="to">Tableau</span><span style="color:var(--muted);font-size:.76rem">데이터 호출</span></li><li><span class="from">Tableau</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.76rem">일배치 적재</span></li><li><span class="from">Tableau</span><span class="arr">→</span><span class="to">대시보드</span><span style="color:var(--muted);font-size:.76rem">회원 현황 시각화</span></li></ul></div>
     <div class="rcard"><h4>🔗 join_id 연결 고리</h4><p>회원번호(join_id)는 Athena와 Salesforce를 잇는 핵심 키. 수집 오류 시 양쪽 동시 역추적 필요.</p><ul><li><span class="from">Hmap 2.0</span><span class="arr">→</span><span class="to">Athena</span><span style="color:var(--muted);font-size:.76rem">join_id 포함</span></li><li><span class="from">Athena</span><span class="arr">↔</span><span class="to">Salesforce DC</span><span style="color:var(--muted);font-size:.76rem">연결 필요</span></li><li><span class="no">GA4</span><span class="arr">✕</span><span class="to">Athena</span><span style="color:var(--muted);font-size:.76rem">join_id 없어 불가</span></li></ul></div>
     <div class="rcard"><h4>📦 Data Cloud 원본 부재</h4><p>Data Cloud에 원본 저장소가 없고 CDP에 강제 적재 구조. 오류 발생 시 원본 검증·소급 조회 어려움.</p><ul><li><span class="from">Service Cloud</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.76rem">실시간</span></li><li><span class="from">Marketing Cloud</span><span class="arr">→</span><span class="to">Data Cloud</span><span style="color:var(--muted);font-size:.76rem">발송이력 변환</span></li><li><span class="no">원본 없음</span><span class="arr">→</span><span class="no">소급 검증 불가</span></li></ul></div>
-    <div class="rcard"><h4>📋 전략실 3팀 협업 구조</h4><p>AI&데이터팀, 통합멤버십팀, DB저작권팀이 각자 영역에서 데이터 업무를 확장 중이며 각 영역이 서로 맞닿아 있습니다.</p><ul><li><span class="from">AI&데이터팀</span><span class="arr">→</span><span class="to">Athena·행동분석</span></li><li><span class="from">통합멤버십팀</span><span class="arr">→</span><span class="to">Salesforce·CRM</span></li><li><span class="from">DB저작권팀</span><span class="arr">→</span><span class="to">통합DB·메타데이터</span></li></ul></div>
+    <div class="rcard"><h4>📋 전략실 3팀 협업 구조</h4><p>전략기획팀, 통합멤버십팀, DB저작권팀이 각자 영역에서 데이터 업무를 확장 중이며 각 영역이 서로 맞닿아 있습니다.</p><ul><li><span class="from">전략기획팀</span><span class="arr">→</span><span class="to">Athena·행동분석</span></li><li><span class="from">통합멤버십팀</span><span class="arr">→</span><span class="to">Salesforce·CRM</span></li><li><span class="from">DB저작권팀</span><span class="arr">→</span><span class="to">통합DB·메타데이터</span></li></ul></div>
   </div>
   <div class="hbox">
     <strong>구조적 취약점 4가지</strong> — ① Tableau 파이프라인+대시보드 이중 역할 ② Data Cloud 원본 없음 → 소급 불가 ③ Hmap 수집 권한 없음 → 이슈 시 외부 의존 ④ join_id 단절 → Athena·Salesforce 교차 분석 불가
@@ -1105,7 +1105,7 @@ body.pm #pmbar { display: flex; }
 <section class="sec slide" id="analysis" data-s="7">
   <div class="eyebrow">07 · 현재 분석 업무</div>
   <div class="sec-title">지금 팀이 하고 있는 일들</div>
-  <p class="sec-desc">AI&데이터팀이 현재 수행 중인 주요 분석 업무입니다. 각 업무가 어떤 데이터 플랫폼에 의존하는지 함께 파악하세요.</p>
+  <p class="sec-desc">전략기획팀이 현재 수행 중인 주요 분석 업무입니다. 각 업무가 어떤 데이터 플랫폼에 의존하는지 함께 파악하세요.</p>
   <div class="acc"></div>
   <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem"><a class="src-btn" href="https://dongwha01.sharepoint.com/:x:/s/msteams_3bcd0a/IQDLIULYMaYiQIxLLp7zOa3fARXhRNEb-GaERltWeNNUHXs?e=Qo5fwk" target="_blank">📄 HMAP 통계 화면요구사항</a></div>
   <div class="atable-wrap">
@@ -1192,14 +1192,14 @@ body.pm #pmbar { display: flex; }
 
     <div class="qblock" id="qb4">
       <div class="qnum">문제 5 / 5</div>
-      <div class="qtext">전략실 3팀(AI&데이터팀, 통합멤버십팀, DB저작권팀)이 각각 주로 담당하는 데이터 영역을 올바르게 연결한 것은?</div>
+      <div class="qtext">전략실 3팀(전략기획팀, 통합멤버십팀, DB저작권팀)이 각각 주로 담당하는 데이터 영역을 올바르게 연결한 것은?</div>
       <div class="qopts">
-        <div class="qopt" onclick="pick(this,4,1)"><span class="qlabel">A</span>AI&데이터팀→Salesforce CRM / 통합멤버십팀→Athena 분석 / DB저작권팀→GTM 태그 관리</div>
-        <div class="qopt" onclick="pick(this,4,2)"><span class="qlabel">B</span>AI&데이터팀→Athena 행동 분석 / 통합멤버십팀→Salesforce 멤버십 CRM / DB저작권팀→통합DB 메타데이터·정합성</div>
-        <div class="qopt" onclick="pick(this,4,3)"><span class="qlabel">C</span>AI&데이터팀→GTM 태그 / 통합멤버십팀→HERB 통계 / DB저작권팀→BigQuery</div>
+        <div class="qopt" onclick="pick(this,4,1)"><span class="qlabel">A</span>전략기획팀→Salesforce CRM / 통합멤버십팀→Athena 분석 / DB저작권팀→GTM 태그 관리</div>
+        <div class="qopt" onclick="pick(this,4,2)"><span class="qlabel">B</span>전략기획팀→Athena 행동 분석 / 통합멤버십팀→Salesforce 멤버십 CRM / DB저작권팀→통합DB 메타데이터·정합성</div>
+        <div class="qopt" onclick="pick(this,4,3)"><span class="qlabel">C</span>전략기획팀→GTM 태그 / 통합멤버십팀→HERB 통계 / DB저작권팀→BigQuery</div>
         <div class="qopt" onclick="pick(this,4,4)"><span class="qlabel">D</span>세 팀 모두 Tableau 대시보드만 담당하며 데이터 수집은 외부 위탁</div>
       </div>
-      <div class="qexp" id="qe4"><strong>정답: B</strong> — AI&데이터팀은 Athena 로그 수집·행동 분석, 통합멤버십팀은 Salesforce 멤버십 CRM, DB저작권팀은 통합DB 메타데이터·정합성 검토를 담당합니다. 이 세 영역이 맞닿아 있어 협업 누수가 전체 데이터 흐름에 영향을 줍니다.</div>
+      <div class="qexp" id="qe4"><strong>정답: B</strong> — 전략기획팀은 Athena 로그 수집·행동 분석, 통합멤버십팀은 Salesforce 멤버십 CRM, DB저작권팀은 통합DB 메타데이터·정합성 검토를 담당합니다. 이 세 영역이 맞닿아 있어 협업 누수가 전체 데이터 흐름에 영향을 줍니다.</div>
       <div class="qnav"><button class="qbtn" onclick="prv(4)">← 이전</button><button class="qbtn pri" id="qn4" onclick="submitQ()" disabled>결과 보기 →</button></div>
     </div>
 
